@@ -1,0 +1,29 @@
+---
+driver:
+  name: docker
+  privileged: true
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+  product_name: "chef"
+  product_version: "13.8.5"
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.2
+    driver_config:
+      run_command: /usr/lib/systemd/systemd
+
+suites:
+ - name: default
+   run_list:
+     - recipe[lcd_testkitchen::default]
+   verifier:
+     inspect_tests:
+       - test/integration/default
+   attributes:
+
