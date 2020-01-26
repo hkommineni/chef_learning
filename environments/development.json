@@ -1,0 +1,9 @@
+{
+  "name": "development",
+  "description": "Development",
+  "default_attributes": {
+    "app": {
+      "language": "php-cli"
+    }
+  }
+}
